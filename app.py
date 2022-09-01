@@ -59,4 +59,8 @@ if __name__ == '__main__':
     parser.add_argument('target', type=str, help='Target folder')
     args = parser.parse_args()
 
+    print(f'Source folder: {args.source}')
+    print(f'Backup folder: {args.target}')
+    print('Processing, please wait ...')
     process(args.source, args.target)
+    print('Success ! Results has been written to text files!')
