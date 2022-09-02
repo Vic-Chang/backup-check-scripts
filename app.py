@@ -42,13 +42,19 @@ def process(source_folder: str, target_folder: str) -> None:
             un_backup_list = diff[2]
 
     # Write to file
-    with open('backup_change_list.txt', 'w') as f:
+    with open('backup_change_list.txt', 'w', encoding='cp950') as f:
         for item in change_list:
-            f.write(item[0][0].replace(replace_sign, target_folder) + '\n')
+            try:
+                f.write(item[0][0].replace(replace_sign, target_folder) + '\n')
+            except:
+                f.write('--------------' + '\n')
 
-    with open('Un_Backup_List.txt', 'w') as f:
+    with open('Un_Backup_List.txt', 'w', encoding='cp950') as f:
         for item in un_backup_list:
-            f.write(item[0].replace(replace_sign, target_folder) + '\n')
+            try:
+                f.write(item[0].replace(replace_sign, target_folder) + '\n')
+            except:
+                f.write('--------------' + '\n')
 
 
 if __name__ == '__main__':
